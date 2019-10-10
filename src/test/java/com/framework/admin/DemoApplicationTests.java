@@ -1,4 +1,4 @@
-package com.framework.demo;
+package com.framework.admin;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

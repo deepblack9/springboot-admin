@@ -1,0 +1,43 @@
+server:
+  port: 8769
+
+spring:
+  application:
+    name: admin-server
+  security:
+    user:
+      name: admin
+      password: 15104287016
+  boot:
+    admin:
+      client:
+        username: ${spring.security.user.name}       #These two are needed so that the client
+        password: ${spring.security.user.password}   #can register at the protected server api
+        instance:
+          metadata:
+            user.name: ${spring.security.user.name}         #These two are needed so that the server
+            user.password: ${spring.security.user.password} #can access the protected client endpoints
+      notify:
+        mail:
+          to: 229770067@qq.com,21639419@qq.com  #收件人邮箱
+#          cc: #抄送邮箱
+          from: seed_922@163.com  #发件人邮箱
+  mail:
+    host: smtp.163.com
+    username: seed_922@163.com #登录账号
+    password: uwI1AKIY #密码(开启IMAP/SMTP服务颁发的授权码)
+    additional-properties:
+      mail:
+        debug: false  
+        smtp:
+          auth: true #安全认证(默认是true)
+          port: 465     
+          ssl:
+            enable: true #开启ssl加密 否则项目启动时报530error
+            socketFactory: sf
+
+#eureka:
+#  instance:
+#    metadata-map:
+#      user.name: ${spring.security.user.name}
+#      user.password: ${spring.security.user.password}
